@@ -37,4 +37,4 @@ Your solution will be evaluated based on the following criteria:
 ## Submission Instructions
 
 - Fork the provided GitHub repository to your personal account. After you have completed the test, commit your code and create a pull request to submit your solution. Please ensure that your repository is public so that we can review your submission.
-- Ensure your submission is submitted within a maximum of 3 days after you receive the email.
+- Ensure your submission is submitted within a maximum of 4 days after you receive the email.
