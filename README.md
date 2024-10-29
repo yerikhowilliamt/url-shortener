@@ -30,11 +30,10 @@ Your solution will be evaluated based on the following criteria:
 - Use of best practices for API design and security
 - Efficiency of the implemented solution
 - Completeness of the tests and documentation
-- Usage of Docker for setup is considered a plus point
 - Use of caching mechanisms is considered a plus point
 - Using a migration file for MySQL is considered a plus point
 
 ## Submission Instructions
 
-- Fork the provided GitHub repository to your personal account. After you have completed the test, commit your code and create a pull request to submit your solution. Please ensure that your repository is public so that we can review your submission.
+- Clone the provided GitHub repository to your personal account. After you have completed the test, send your code to effendy@evore.id, including setup instructions for the project in the README file.
 - Ensure your submission is submitted within a maximum of 4 days after you receive the email.
