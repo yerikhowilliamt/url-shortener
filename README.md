@@ -1,39 +1,100 @@
-# Backend Developer Intern Code Test
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-**Objective:** Create a URL shortener backend using Nest.js
+# URL Shortener Backend
 
-## Requirements:
+## Overview
 
-1. The shortened link must be unique and have an expiration of 5 years.
-2. The system should implement authentication guard with email password using jwt token for creating token.
-3. Allow the user to customize the URL with a maximum of 16 characters.
-4. The system-generated short URL should be 6 characters.
-5. The system should not have any downtime and must operate as fast as possible.
-6. The system should effectively handle thousands of requests per second for generating unique short URLs.
+This project is a URL shortener backend built with NestJS, Prisma, and Zod for validation. The API allows users to generate short URLs, customize them, and retrieve the original URLs via redirection. It also includes authentication with JWT, rate-limiting, and expiration handling for shortened URLs.
 
-## Instructions:
+## Features
 
-1. Provide a RESTful API to shorten a given URL.
-2. The API should return the shortened URL and its expiration date.
-3. Implement a redirection service that, when a user accesses the shortened URL, redirects to the original URL.
-4. Include rate-limiting to prevent abuse.
-5. Implement unit tests to test the functionality of your service.
-6. Document your API endpoints and include a README file with setup instructions.
-7. Document the API using Postman or Swagger.
+- User Authentication: Email-password authentication using JWT.
 
-## Evaluation:
+- Short URL Generation: Automatically generates a unique 6-character short URL.
 
-Your solution will be evaluated based on the following criteria:
+- Custom Short URL: Users can customize the short URL (up to 16 characters).
 
-- Code quality and organization
-- Adherence to the project requirements
-- Use of best practices for API design and security
-- Efficiency of the implemented solution
-- Completeness of the tests and documentation
-- Use of caching mechanisms is considered a plus point
-- Using a migration file for MySQL is considered a plus point
+- Expiration Handling: Shortened URLs expire after 5 years.
 
-## Submission Instructions
+- Redirection Service: Redirects users to the original URL when accessing the shortened link.
 
-- Clone the provided GitHub repository to your personal account. After you have completed the test, send your code to effendy@evore.id, including setup instructions for the project in the README file.
-- Ensure your submission is submitted within a maximum of 4 days after you receive the email.
+- Rate Limiting: Prevents abuse by limiting requests per second.
+
+- Database Management: Uses Prisma with MySQL (support for migration files).
+
+- API Documentation: Documented using Swagger.
+
+- Testing: Unit tests included to ensure functionality.
+
+## Tech Stack
+
+- Backend Framework: NestJS
+- ORM: Prisma
+- Validation: Zod
+- Authentication: JWT
+- Database: MySQL
+- Rate Limiting: @nestjs/throttler
+- API Documentation: Swagger
+- Testing: Jest
+
+## Installation
+
+### Steps :
+
+1. **Clone the repository** :
+
+    ```bash
+    git clone https://github.com/your-repo/url-shortener.git
+    cd url-shortener
+    ```
+
+2. **Install dependencies** :
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up environment variables** :
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4. **Start the server** :
+
+    ```bash
+    npm run start:dev
+    ```
+
+
+5. **Access API documentation at** :
+
+    ```bash
+    http://localhost:4000/api
+    ```
+
+
+## API Endpoints
+
+### Authentication
+- Register: POST /api/auth/register
+- Login: POST /api/auth/login
+
+### User Management
+- User details : GET /api/users/current
+- Update: PATCH /api/users/current
+- Logout: DELETE /api/users/current
+
+### Url Management
+- Shorten URL: POST /api/users/:userId/url/shorten
+- Redirect to Original URL: GET /api/users/url/:shortened
+
+## Testing
+
+**Run unit tests with** :
+
+    ```bash
+    npm run test
+    ```
