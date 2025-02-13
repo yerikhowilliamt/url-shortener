@@ -29,13 +29,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config, {
     deepScanRoutes: true,
   });
-  SwaggerModule.setup('api', app, document, {
-    explorer: true,
-    swaggerOptions: {
-      defaultModelsExpandDepth: -1, // Jangan tampilkan schema model otomatis
-      supportedSubmitMethods: ['get', 'post', 'put', 'delete'], // Hilangkan "try it out" untuk method tertentu
-    },
-  });
+  SwaggerModule.setup('api', app, document);
 
   await app.listen(port);
   console.log(`Listening to port: ${port}`);

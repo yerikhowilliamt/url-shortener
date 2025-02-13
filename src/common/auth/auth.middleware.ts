@@ -22,7 +22,6 @@ export class AuthMiddleware implements NestMiddleware {
         throw new HttpException('Invalid token format', HttpStatus.FORBIDDEN);
       }
 
-      // ✅ Verifikasi token dengan secret key
       let decoded: any;
       try {
         decoded = jwt.verify(accessToken, this.configService.get<string>('JWT_SECRET'));
@@ -30,7 +29,6 @@ export class AuthMiddleware implements NestMiddleware {
         throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
       }
 
-      // ✅ Cek user berdasarkan `id` dari payload JWT, bukan berdasarkan accessToken
       const user = await this.prismaService.user.findUnique({
         where: { id: decoded.id },
       });
@@ -39,7 +37,7 @@ export class AuthMiddleware implements NestMiddleware {
         throw new HttpException('User not found', HttpStatus.UNAUTHORIZED);
       }
 
-      req.user = user; // Simpan user di request
+      req.user = user;
       return next();
     } catch (error) {
       return next(new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED));
