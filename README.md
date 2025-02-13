@@ -56,20 +56,14 @@ This project is a URL shortener backend built with NestJS, Prisma, and Zod for v
     npm install
     ```
 
-3. **Set up environment variables** :
-
-    ```bash
-    cp .env.example .env
-    ```
-
-4. **Start the server** :
+3. **Start the server** :
 
     ```bash
     npm run start:dev
     ```
 
 
-5. **Access API documentation at** :
+4. **Access API documentation at** :
 
     ```bash
     http://localhost:4000/api
